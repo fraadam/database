@@ -55,3 +55,13 @@ function createTable (table) {
   database[table] = {};
 }
 
+function saveTables () {
+  fs.writeFileSync('database.json', JSON.stringify(database), 'utf-8');
+}
+
+function loadTables () {
+  if (!existsFile.sync('database.json')) {
+    fs.writeFileSync('database.json', '{}');
+  }
+  database = JSON.parse(fs.readFileSync('database.json', 'utf-8'));
+}
