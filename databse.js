@@ -1,19 +1,3 @@
-/*import { basename } from 'path';
-
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'table'
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log('Connected!');
-});
-*/
 /*Simple database
 - Store data in object, these called "table"s right now.
 - Get: write a function which gets a key and the name of the table and returns the value.
@@ -40,28 +24,34 @@ function put(tableName, key, value) {
 4.
 Do it yourself. */
 
-var database = new Object();
-database.firstName = 'Adam';
-database.secondName = 'Frank';
-database.age = 'oldenough';
+const readlineSync = require('readline-sync');
+const fs = require('fs');
+var existsFile = require('exists-file');
+
+var database = new Object ();
 
 function getData(database, keys) {
-  return Object.values(database);
+  return database[keys] = value;
 }
 console.log(getData(database));
 
-function createTable(tableName) {
-  database[tableName] = new Object();
+function putData(keys, values, database) {
+  database[table][key] = value;
+}
 
+function delByKey (table, key) {
+  delete database[table][key];
+}
 
-  function putData(keys, values, database) {
-    let table = [];
-    return Object.keys(database);
-    return Object.values(database);
+function delByValue (table, value) {
+  for(var i in database[table]) {
+    if (database[i]) === value) {
+      delete database[value];
+    }
   }
-  console.log(table);
+}
 
-//function createTable (table) {
+function createTable (table) {
+  database[table] = {};
+}
 
-//}
-//console.log(createTable(table));
